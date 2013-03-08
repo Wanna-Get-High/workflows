@@ -1,15 +1,14 @@
-#####################
-#### Version 1.1 ####
-#####################
 
-## 1.0 ##
-	basics finished:
-		- showed the tabs
+# Version 1.1
 
-## 1.1 ##
-	- added comments to the code
- 	- fixed some small issue 
-	- reduced the code length
+## 1.0
+> basics finished:
+> > - showed the tabs
+
+## 1.1
+> - added comments to the code
+> - fixed some small issue 
+> - reduced the code length
 
 #####################
 #### DESCRIPTION ####
