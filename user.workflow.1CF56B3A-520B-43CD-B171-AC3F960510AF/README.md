@@ -2,8 +2,7 @@
 # Version 1.1
 
 ## 1.0
-> basics finished:
-> > - showed the tabs
+> - basics finished: show the tabs
 
 ## 1.1
 > - added comments to the code
