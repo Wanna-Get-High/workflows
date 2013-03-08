@@ -86,6 +86,8 @@
 
 tell application "Google Chrome"	repeat with theWindow in every window		repeat with theTab in every tab of theWindow			if ((theTab's URL) contains "youtube") then				set the URL of theTab to "http://www.youtube.com/results?search_query=" &amp; q				set active tab to item 5 of every tab of item 1 of every window			end if		end repeat	end repeatend tell
 end alfred_script</string>
+				<key>cachescript</key>
+				<false/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.applescript</string>
@@ -94,41 +96,38 @@ end alfred_script</string>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string>#####################
-#### Version 1.0 ####
-#####################
+	<string># Version 1.0
 
-TO DO:
-	- it's slow … try to find a way to make it faster 
+## 1.0
+&gt; getting the suggestion from the html page (parsing it)
 
-#####################
-#### DESCRIPTION ####
-#####################
+## TO DO:
+&gt; it's slow … try to find a way to make it faster (if possible)
+
+# DESCRIPTION 
 
 This workflow allow you to make somme search on youtube.
 
 When you type the query it gets the result of youtube from that query parse it and put it into Alfred suggestion.
 
-####################################
-#### INSTALLATION / REQUIREMENT ####
-####################################
+
+# INSTALLATION / REQUIREMENT
 
 In order to use this workflow you will need 
-	- to have ruby on your machine 	
-	- to install hpricot from: https://rubygems.org/gems/hpricot
+&gt; to have ruby on your machine 	
+&gt; 
+&gt; to install hpricot from: 
+&gt; &gt; https://rubygems.org/gems/hpricot
 	
-################################
-#### USAGE OF THIS WORKFLOW ####
-################################
+
+# USAGE OF THIS WORKFLOW
 
 y {query}
 
-#############################
-#### CREDITS / COPYRIGHT ####
-#############################
 
-If you have some suggestions or bug report email me @ 
-alfredlotl (at) gmail (dot) com</string>
+# CREDITS / COPYRIGHT
+
+If you have some suggestions or bug report email me @ alfredlotl (at) gmail (dot) com</string>
 	<key>uidata</key>
 	<dict>
 		<key>BF619F52-09B4-4D62-9671-28A071C1D2F5</key>

@@ -1,6 +1,6 @@
-#Version 1.1
+# Version 1.1
 
-## 1.0 ##
+## 1.0
 > Basics are settled :
 > > adding
 > > removing 
@@ -113,6 +113,7 @@ end if
 Many thanks to:
 
 > Flavio (https://github.com/flavio/jump) which created the shell script.
+>
 > Ezial a friend of mine which shows me this script :)
 
 

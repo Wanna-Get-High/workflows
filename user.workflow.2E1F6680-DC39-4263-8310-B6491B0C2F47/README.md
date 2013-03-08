@@ -1,43 +1,35 @@
-#####################
-#### Version 1.1 ####
-#####################
+# Version 1.1
 
-## 1.0 ##
-	basics finished:
-		- open the selected tab
+## 1.0
+> basics finished: open the selected tab
 
-## 1.1 ##
-	adding JSON parse for chrome file bookmark
+## 1.1
+> adding JSON parse for chrome file bookmark
 
-TO DO :
-	- add the possibility to open all bookmarks from a folder
+## TO DO :
+> add the possibility to open all bookmarks from a folder
 
-#####################
-#### DESCRIPTION ####
-#####################
 
-This workflow allow you to search in google chrome bookmark and 
-open a new tab with the selected item.
+# DESCRIPTION
+
+This workflow allow you to search in google chrome bookmark and  open a new tab with the selected item.
 
 When you type the query it gets the suggestion from the file Bookmark with that query and put it into Alfred suggestion.
 
 
-######################################
-#### INSTALLATION / REQUIREMENT  #####
-######################################
+# INSTALLATION / REQUIREMENT
+
+You will need ruby on your machine
 
 You will need to install JSON :
-	gem install json
+> gem install json
 
-###############################
-#### USAGE OF THE WORKFLOW ####
-###############################
 
-Usage : ob {query}
+# USAGE OF THE WORKFLOW
 
-#############################
-#### CREDITS / COPYRIGHT ####
-#############################
+ob {query}
 
-If you have some suggestions or bug report email me @ 
-alfredlotl (at) gmail (dot) com
+
+# CREDITS / COPYRIGHT
+
+If you have some suggestions or bug report email me @ alfredlotl (at) gmail (dot) com

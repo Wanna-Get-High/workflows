@@ -1,35 +1,31 @@
-#####################
-#### Version 1.0         ####
-#####################
+# Version 1.0
 
-TO DO :
-	- add "i feel lucky" if possible
-	- open in the current tab
+## 1.0
+> retrieve the suggestion form the dxml file of google
 
-#####################
-#### DESCRIPTION ####
-#####################
+## TO DO :
+> add "i feel lucky" if possible
+> open in the current tab
+
+
+# DESCRIPTION
 
 This workflow allow you to make somme search on google.
 
 When you type the query it gets the suggestion of google from that query and put it into Alfred suggestion.
 
 
-######################################
-#### INSTALLATION / REQUIREMENT     #####
-######################################
+# INSTALLATION / REQUIREMENT
 
 The only thing you need is ruby that's all :)
 
-###############################
-#### USAGE OF THE WORKFLOW ###
-###############################
+
+# USAGE OF THE WORKFLOW
 
 Usage : g {query}
 
-#############################
-#### CREDITS / COPYRIGHT #####
-#############################
+
+# CREDITS / COPYRIGHT
 
 If you have some suggestions or bug report email me @ 
 alfredlotl (at) gmail (dot) com
