@@ -9,6 +9,6 @@ In order to use these workflows you will need to:
 > > http://v2.alfredapp.com/
 >
 > copy a whole folder (user.workflow.QE6ND5-KKJD2-...) into :
-> > /Users/<USERNAME>/Library/Application Support/Alfred 2/Alfred.alfredpreferences/workflows
+> > /Users/[USERNAME]/Library/Application Support/Alfred 2/Alfred.alfredpreferences/workflows
 >
 > see requirement for workflows -> described in the README.md of each workflows folder.
