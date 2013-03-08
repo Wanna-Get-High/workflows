@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>WannaGetHigh.Show_tab</string>
+	<key>connections</key>
+	<dict>
+		<key>3C811043-DB38-4673-885B-1A71AA22430D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>817E7036-70AE-4F60-84BA-D6D6DDDE122D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>François Lepan</string>
+	<key>description</key>
+	<string>Search in the openned tab of Google Chrome and show the selected result</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Search Google Chrome Openned Tab</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)		tell application "Google Chrome"				activate				-- retrieve the 2 index passed in the argument (window and tab index)		set window_and_tab_index to my explode(" ", q)				-- set wind to the object form of the window index		set wind to (item (item 1 of window_and_tab_index as integer) in every window)				-- set the window as active and frontmost		tell wind			set index to 1			set visible to true		end tell				-- set the active tab of that window		set active tab index of wind to (item 2 of window_and_tab_index as integer)			end tellend alfred_script
+
+
+-- i found this wonderfull function on the net ;) -- go check their work if you are interested-- e.g. explode("-", "a-b-c") --&gt; {"a", "b", "c"}on explode(delimiter, input)	-- ljr (http://applescript.bratis-lover.net/library/string/),   	-- modified from Applescript.net (http://bbs.applescript.net/viewtopic.php?id=18377)	local delimiter, input, ASTID	set ASTID to AppleScript's text item delimiters	try		set AppleScript's text item delimiters to delimiter		set input to text items of input		set AppleScript's text item delimiters to ASTID		return input --&gt; list	on error eMsg number eNum		set AppleScript's text item delimiters to ASTID		error "Can't explode: " &amp; eMsg number eNum	end tryend explode</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>817E7036-70AE-4F60-84BA-D6D6DDDE122D</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>st</string>
+				<key>runningsubtext</key>
+				<string>Loading result</string>
+				<key>script</key>
+				<string>osascript wich_tab.scpt {query}</string>
+				<key>subtext</key>
+				<string>Show tabs that contain the query</string>
+				<key>title</key>
+				<string>Search Google chrome tab</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>3C811043-DB38-4673-885B-1A71AA22430D</string>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>#####################
+#### Version 1.1 ####
+#####################
+
+## 1.0 ##
+	basics finished:
+		- showed the tabs
+
+## 1.1 ##
+	- added comments to the code
+ 	- fixed some small issue 
+	- reduced the code length
+
+#####################
+#### DESCRIPTION ####
+#####################
+
+This workflow allow you to search in Google Chrome opened tab for the query and give you the focus on the selected tab.
+
+The query is looked in the URL and the title of the tab.
+
+####################################
+#### INSTALLATION / REQUIREMENT ####
+####################################
+
+You need google chrome: 
+http://support.google.com/chrome/bin/answer.py?hl=en&amp;answer=95346
+
+################################
+#### USAGE OF THIS WORKFLOW ####
+################################
+
+st {query}
+
+#############################
+#### CREDITS / COPYRIGHT ####
+#############################
+
+If you have some suggestions or bug report email me @ 
+alfredlotl (at) gmail (dot) com</string>
+	<key>uidata</key>
+	<dict>
+		<key>3C811043-DB38-4673-885B-1A71AA22430D</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>817E7036-70AE-4F60-84BA-D6D6DDDE122D</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>

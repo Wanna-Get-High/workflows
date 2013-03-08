@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>WannaGetHigh.SABnzbd</string>
+	<key>connections</key>
+	<dict>
+		<key>2386D79F-9D71-486E-BCF5-41B6B513C3A7</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>E21D8664-9F4D-4D6D-8C5F-BB40480AAB60</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>42E82EE9-F1D8-446E-BD03-552B0D128FCF</string>
+				<key>modifiers</key>
+				<integer>524288</integer>
+				<key>modifiersubtext</key>
+				<string>Quit SABnzbd and close tabs</string>
+			</dict>
+		</array>
+		<key>E21D8664-9F4D-4D6D-8C5F-BB40480AAB60</key>
+		<array/>
+	</dict>
+	<key>createdby</key>
+	<string>François Lepan</string>
+	<key>description</key>
+	<string>Open SABnzbd and other tabs</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>SABnzbd</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>sab</string>
+				<key>runningsubtext</key>
+				<string>opening SABnzbd and the tabs</string>
+				<key>script</key>
+				<string># In order to add or remove tabs to be openned 
+# go check the function getItemsForSABnzbd() in suggest.rb
+
+ruby suggest.rb</string>
+				<key>subtext</key>
+				<string>Open SABnzbd with other tabs, use alt+enter to quit SABnzbd and close tabs</string>
+				<key>title</key>
+				<string>open SABnzbd and tabs</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>2386D79F-9D71-486E-BCF5-41B6B513C3A7</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+	tell application "SABnzbd"
+		activate
+		delay 1
+	end tell	tell application "Google Chrome"		-- This list contain the URL of the tab you want to open		-- add or remove any URL of your choice
+		set listeTabToOpen to my explode(" ", q)
+				-- This list will be used to check if one of the tabs		-- in the listeTabToOpen has to be openned 		set listTabOpenned to {}				----------------------------------------------		-- Open a window if no window is openned		----------------------------------------------		if ((count every window) is equal to 0) then			make new window		end if				----------------------------------------------		-- init the boolean list		----------------------------------------------		repeat with i from 1 to (count of listeTabToOpen) by 1			set listTabOpenned to listTabOpenned &amp; true		end repeat				----------------------------------------------		-- Get to know if the tabs in the listeTabToOpen 		-- are already openned		----------------------------------------------		repeat with theWindow in every window			repeat with theTab in every tab of theWindow				repeat with i from 1 to (count of listeTabToOpen) by 1					if ((item i of listeTabToOpen) is equal to (theTab's URL)) then						set item i of listTabOpenned to false					end if				end repeat			end repeat		end repeat						----------------------------------------------		-- Open the tab in the listeTabToOpen 		-- that are not open		----------------------------------------------		repeat with i from 1 to (count of listeTabToOpen) by 1			set elem to item i of listTabOpenned			if (elem is equal to true) then				set newTab to item i of listeTabToOpen				tell window 1 to make new tab with properties {URL:newTab}			end if		end repeat
+		
+		activate
+			end tellend alfred_script
+
+
+-- i found this wonderfull function on the net ;) -- go check their work if you are interested-- e.g. explode("-", "a-b-c") --&gt; {"a", "b", "c"}on explode(delimiter, input)	-- ljr (http://applescript.bratis-lover.net/library/string/),   	-- modified from Applescript.net (http://bbs.applescript.net/viewtopic.php?id=18377)	local delimiter, input, ASTID	set ASTID to AppleScript's text item delimiters	try		set AppleScript's text item delimiters to delimiter		set input to text items of input		set AppleScript's text item delimiters to ASTID		return input --&gt; list	on error eMsg number eNum		set AppleScript's text item delimiters to ASTID		error "Can't explode: " &amp; eMsg number eNum	end tryend explode</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>E21D8664-9F4D-4D6D-8C5F-BB40480AAB60</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)		tell application "Google Chrome"		set listeTabToOpen to my explode(" ", q)				----------------------------------------------		-- Close the tab in the listeTabToOpen that are open		----------------------------------------------		repeat with i from (count of windows) to 1 by -1			repeat with j from (count of tabs of window i) to 1 by -1				set thistab to tab j of window i				set titleTab to URL of thistab								if (listeTabToOpen contains titleTab) then					close thistab				end if							end repeat		end repeat			end tell
+
+	tell application "SABnzbd"		quit	end tell
+end alfred_script
+
+-- i found this wonderfull function on the net ;) -- go check their work if you are interested-- e.g. explode("-", "a-b-c") --&gt; {"a", "b", "c"}on explode(delimiter, input)	-- ljr (http://applescript.bratis-lover.net/library/string/),   	-- modified from Applescript.net (http://bbs.applescript.net/viewtopic.php?id=18377)	local delimiter, input, ASTID	set ASTID to AppleScript's text item delimiters	try		set AppleScript's text item delimiters to delimiter		set input to text items of input		set AppleScript's text item delimiters to ASTID		return input --&gt; list	on error eMsg number eNum		set AppleScript's text item delimiters to ASTID		error "Can't explode: " &amp; eMsg number eNum	end tryend explode</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>42E82EE9-F1D8-446E-BD03-552B0D128FCF</string>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>#####################
+#### Version 1.0 ####
+#####################
+
+TO DO: 
+ - Being able not to open the SABnzbd tab twice.
+ - Close all tab whatever the reason is.
+ - Change the declaration of the different URL (script filter) 
+
+#####################
+#### DESCRIPTION ####
+#####################
+
+This workflow allows you to open the application SABnzbd and also open tabs you want to open in order to download .nzb files.
+
+You will also be able to close all of the opened tabs by this workflow.
+
+######################
+#### INSTALLATION ####
+######################
+
+In order to use this workflow you will need to install SABnzbd:
+http://sabnzbd.org/
+
+And you will also need a newsgroup provider like:
+http://usenetstorm.com/
+
+I show this one because it has a free service but there is a lot of them so choose wisely.
+
+################################
+#### USAGE OF THIS WORKFLOW ####
+################################
+
+Set the list of other tabs in the script filter (to be done)
+
+sab {query}
+
+if (ALT button is also pressed) {
+	close SABnzbd and tabs from the list
+} else {
+	open SABnzbd and tabs from the list
+}
+
+
+#############################
+#### CREDITS / COPYRIGHT ####
+#############################
+
+If you have some suggestions or bug report email me @ 
+alfredlotl (at) gmail (dot) com</string>
+	<key>uidata</key>
+	<dict>
+		<key>2386D79F-9D71-486E-BCF5-41B6B513C3A7</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>42E82EE9-F1D8-446E-BD03-552B0D128FCF</key>
+		<dict>
+			<key>ypos</key>
+			<real>140</real>
+		</dict>
+		<key>E21D8664-9F4D-4D6D-8C5F-BB40480AAB60</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>

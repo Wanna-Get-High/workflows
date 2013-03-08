@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string></string>
+	<key>connections</key>
+	<dict>
+		<key>58DB882B-1951-44E1-8A9E-B7A823787948</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>920320B5-9425-4FE1-A34C-25196BD95B07</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>AAA080F4-1054-4524-9010-DFCBDD3D63C0</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>58DB882B-1951-44E1-8A9E-B7A823787948</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>E94B3F31-A716-4F36-8E5B-99625E899085</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>E94B3F31-A716-4F36-8E5B-99625E899085</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>920320B5-9425-4FE1-A34C-25196BD95B07</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Benjamin Van Ryseghem</string>
+	<key>description</key>
+	<string>Load an image with Event Model</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Event Model</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>normalisation</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>ruby newImage.rb '"-f" '{query}</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>E94B3F31-A716-4F36-8E5B-99625E899085</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>920320B5-9425-4FE1-A34C-25196BD95B07</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>normalisation</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>ruby newImage.rb {query}</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>58DB882B-1951-44E1-8A9E-B7A823787948</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>event</string>
+				<key>normalisation</key>
+				<integer>0</integer>
+				<key>runningsubtext</key>
+				<string>Wait while retrieving images</string>
+				<key>script</key>
+				<string>#Version 1.1
+
+#Path to your image directory
+export PHARO_DIR="/Users/WannaGetHigh/workspace/M1S2/Pharo Images/Pharo 2.0/Event_model"
+
+#Use:
+#	event name
+
+ruby suggest.rb {query}</string>
+				<key>subtext</key>
+				<string>Download a image with Event Model</string>
+				<key>title</key>
+				<string>Event Model</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>AAA080F4-1054-4524-9010-DFCBDD3D63C0</string>
+		</dict>
+	</array>
+	<key>uidata</key>
+	<dict>
+		<key>58DB882B-1951-44E1-8A9E-B7A823787948</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>920320B5-9425-4FE1-A34C-25196BD95B07</key>
+		<dict>
+			<key>ypos</key>
+			<real>80</real>
+		</dict>
+		<key>AAA080F4-1054-4524-9010-DFCBDD3D63C0</key>
+		<dict>
+			<key>ypos</key>
+			<real>80</real>
+		</dict>
+		<key>E94B3F31-A716-4F36-8E5B-99625E899085</key>
+		<dict>
+			<key>ypos</key>
+			<real>150</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>https://github.com/Ezial/AlfredScripts</string>
+</dict>
+</plist>

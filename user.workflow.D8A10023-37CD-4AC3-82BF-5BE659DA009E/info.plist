@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>WannaGetHigh.Youtube_suggestor</string>
+	<key>connections</key>
+	<dict>
+		<key>EAD22D66-2847-4CBD-8CD8-048B559EFFD3</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>DBB5B71D-F189-4A40-B077-44C807651CDC</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>BF619F52-09B4-4D62-9671-28A071C1D2F5</string>
+				<key>modifiers</key>
+				<integer>524288</integer>
+				<key>modifiersubtext</key>
+				<string>Open the suggestion in a tab that is already on youtube</string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>François Lepan</string>
+	<key>description</key>
+	<string>Add the suggestion of youtube right into Alfred</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Youtube suggestor</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>y</string>
+				<key>runningsubtext</key>
+				<string>Waiting for suggestions</string>
+				<key>script</key>
+				<string>ruby suggest.rb {query}</string>
+				<key>subtext</key>
+				<string>Get suggestion from youtube</string>
+				<key>title</key>
+				<string>Youtube suggestor</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>EAD22D66-2847-4CBD-8CD8-048B559EFFD3</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>plusspaces</key>
+				<true/>
+				<key>url</key>
+				<string>http://www.youtube.com/results?search_query={query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>DBB5B71D-F189-4A40-B077-44C807651CDC</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+
+tell application "Google Chrome"	repeat with theWindow in every window		repeat with theTab in every tab of theWindow			if ((theTab's URL) contains "youtube") then				set the URL of theTab to "http://www.youtube.com/results?search_query=" &amp; q				set active tab to item 5 of every tab of item 1 of every window			end if		end repeat	end repeatend tell
+end alfred_script</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>BF619F52-09B4-4D62-9671-28A071C1D2F5</string>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>#####################
+#### Version 1.0 ####
+#####################
+
+TO DO:
+	- it's slow … try to find a way to make it faster 
+
+#####################
+#### DESCRIPTION ####
+#####################
+
+This workflow allow you to make somme search on youtube.
+
+When you type the query it gets the result of youtube from that query parse it and put it into Alfred suggestion.
+
+####################################
+#### INSTALLATION / REQUIREMENT ####
+####################################
+
+In order to use this workflow you will need 
+	- to have ruby on your machine 	
+	- to install hpricot from: https://rubygems.org/gems/hpricot
+	
+################################
+#### USAGE OF THIS WORKFLOW ####
+################################
+
+y {query}
+
+#############################
+#### CREDITS / COPYRIGHT ####
+#############################
+
+If you have some suggestions or bug report email me @ 
+alfredlotl (at) gmail (dot) com</string>
+	<key>uidata</key>
+	<dict>
+		<key>BF619F52-09B4-4D62-9671-28A071C1D2F5</key>
+		<dict>
+			<key>ypos</key>
+			<real>130</real>
+		</dict>
+		<key>DBB5B71D-F189-4A40-B077-44C807651CDC</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>EAD22D66-2847-4CBD-8CD8-048B559EFFD3</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>

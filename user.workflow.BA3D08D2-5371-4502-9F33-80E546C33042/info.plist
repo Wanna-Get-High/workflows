@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>co.uk.tom-hunt.alfpt</string>
+	<key>connections</key>
+	<dict>
+		<key>76010780-B5B0-45CE-A483-C6E578A4629B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>E55A4DEF-5331-4A37-A13B-BE6BE4E3DC71</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>85B19844-D25D-4DCA-8A1F-50BC7264A1F3</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>927F2F9D-6882-4E34-AD8F-A004D12444EB</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>927F2F9D-6882-4E34-AD8F-A004D12444EB</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D9C82B07-7CF4-4A72-AA13-5A8A88ABFB3C</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>E55A4DEF-5331-4A37-A13B-BE6BE4E3DC71</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D9C82B07-7CF4-4A72-AA13-5A8A88ABFB3C</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Tom Hunt</string>
+	<key>description</key>
+	<string>Search for and install new workflows</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>AlfPT</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>include( 'updater.php' );
+ext_update( '{query}' );</string>
+				<key>type</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>E55A4DEF-5331-4A37-A13B-BE6BE4E3DC71</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>alfpt install</string>
+				<key>script</key>
+				<string>include( 'updater.php' );
+update_icons();
+$f = flags_from_query( '{query}' );
+$q = term_from_query( '{query}' );
+$l = list_installed( '../', TRUE );
+
+echo shell_exec( 'curl "http://alfredrepo.tom-hunt.co.uk/repo/?q=' . $q . '&amp;' . $f . 'l=' . $l . '"' );</string>
+				<key>subtext</key>
+				<string>Updating icon cache. Please wait...</string>
+				<key>title</key>
+				<string>Alfred Package Tool</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>85B19844-D25D-4DCA-8A1F-50BC7264A1F3</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>AlfPT</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>D9C82B07-7CF4-4A72-AA13-5A8A88ABFB3C</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>alfpt update</string>
+				<key>script</key>
+				<string>include( 'updater.php' );
+if( '{query}' == '-f' )
+	{ ext_list( TRUE ); }
+else
+	{ ext_list( FALSE ); }</string>
+				<key>subtext</key>
+				<string>Select a workflow to check for and download the latest version</string>
+				<key>title</key>
+				<string>Update Alfred workflows</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>76010780-B5B0-45CE-A483-C6E578A4629B</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>include( 'updater.php' );
+ext_install( '{query}' );</string>
+				<key>type</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>927F2F9D-6882-4E34-AD8F-A004D12444EB</string>
+		</dict>
+	</array>
+	<key>uidata</key>
+	<dict>
+		<key>76010780-B5B0-45CE-A483-C6E578A4629B</key>
+		<dict>
+			<key>ypos</key>
+			<real>260</real>
+		</dict>
+		<key>85B19844-D25D-4DCA-8A1F-50BC7264A1F3</key>
+		<dict>
+			<key>ypos</key>
+			<real>110</real>
+		</dict>
+		<key>927F2F9D-6882-4E34-AD8F-A004D12444EB</key>
+		<dict>
+			<key>ypos</key>
+			<real>110</real>
+		</dict>
+		<key>D9C82B07-7CF4-4A72-AA13-5A8A88ABFB3C</key>
+		<dict>
+			<key>ypos</key>
+			<real>190</real>
+		</dict>
+		<key>E55A4DEF-5331-4A37-A13B-BE6BE4E3DC71</key>
+		<dict>
+			<key>ypos</key>
+			<real>260</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>http://tom-hunt.co.uk</string>
+</dict>
+</plist>

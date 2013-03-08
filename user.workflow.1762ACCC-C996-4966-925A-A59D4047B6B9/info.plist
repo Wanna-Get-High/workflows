@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>WannaGetHigh.Jump_to</string>
+	<key>connections</key>
+	<dict>
+		<key>52D139E6-5ADB-4587-A9BC-F5A490F0EDCA</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>9A9F3658-0B62-4708-89CD-2F5D34F2BC37</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>54803921-72D2-4864-95E8-5BCB367A326D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>9A9F3658-0B62-4708-89CD-2F5D34F2BC37</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>B053DB21-0220-4077-9ADE-8A18C8E9A333</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>52D139E6-5ADB-4587-A9BC-F5A490F0EDCA</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>B69F7EBC-4EB4-4BCA-B7BF-04D21D7F2FD8</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string>Open a terminal at {query}</string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>54803921-72D2-4864-95E8-5BCB367A326D</string>
+				<key>modifiers</key>
+				<integer>524288</integer>
+				<key>modifiersubtext</key>
+				<string>Foremost finder window is added as bookmark to jump as "{query}"</string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>F729BB18-C83C-4A56-8FB3-0837BE0762FD</string>
+				<key>modifiers</key>
+				<integer>262144</integer>
+				<key>modifiersubtext</key>
+				<string>Delete bookmark "{query}"</string>
+			</dict>
+		</array>
+		<key>B69F7EBC-4EB4-4BCA-B7BF-04D21D7F2FD8</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>9A9F3658-0B62-4708-89CD-2F5D34F2BC37</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>F729BB18-C83C-4A56-8FB3-0837BE0762FD</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>9A9F3658-0B62-4708-89CD-2F5D34F2BC37</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>François Lepan</string>
+	<key>description</key>
+	<string>Open a folder location using bookmark</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Jump to folder</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+	set returnedPath to do shell script "jump-bin " &amp; q	set pwd to do shell script "pwd"	if returnedPath is equal to pwd then
+		do shell script "echo The bookmark \\'" &amp; q &amp; "\\' isn\\'t found in jump bookmarks"
+	else
+		tell application "Finder" to activate		do shell script "open " &amp; quoted form of returnedPath	end if
+end alfred_script</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>52D139E6-5ADB-4587-A9BC-F5A490F0EDCA</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+
+	tell application "Finder" to set currentDir to (target of front Finder window) as text	
+	do shell script "cd " &amp; (quoted form of POSIX path of currentDir) &amp; "; jump-bin -a " &amp; q
+
+	do shell script "echo Bookmark " &amp; q &amp; " added"
+
+end alfred_script</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>54803921-72D2-4864-95E8-5BCB367A326D</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Jump</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>9A9F3658-0B62-4708-89CD-2F5D34F2BC37</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+	set returnedPath to do shell script "jump-bin " &amp; q	set pwd to do shell script "pwd"		if returnedPath is equal to pwd then		do shell script "echo The bookmark \\'" &amp; q &amp; "\\' isn\\'t found in jump 	bookmarks"	else		tell application "Terminal"			-- this open a new terminal window			do script " "			-- this use the command cd			do script with command "cd " &amp; quoted form of returnedPath in window 1			activate		end tell	end if
+end alfred_script</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>B69F7EBC-4EB4-4BCA-B7BF-04D21D7F2FD8</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)set returnedValue to do shell script "jump-bin -d " &amp; q	if returnedValue is equal to "" then		do shell script "echo The bookmark \\'" &amp; q &amp; "\\' isn\\'t found in jump bookmarks"	else		do shell script "echo Bookmark " &amp; q &amp; " deleted"	end if
+
+end alfred_script</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>F729BB18-C83C-4A56-8FB3-0837BE0762FD</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>j</string>
+				<key>runningsubtext</key>
+				<string>Loading bookmarks</string>
+				<key>script</key>
+				<string>ruby suggest.rb '{query}'</string>
+				<key>subtext</key>
+				<string>Open the folder in the Finder that is pointed by the bookmark of jump-bin script</string>
+				<key>title</key>
+				<string>Jump to the folder</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>B053DB21-0220-4077-9ADE-8A18C8E9A333</string>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>#####################
+#### Version 1.1 ####
+#####################
+
+## 1.0 ##
+Basics are settled :
+	- adding
+	- removing 
+	- jumping to finder folder
+ 
+TO DO :
+	- add the possibility to open a terminal at the bookmark
+
+## 1.1 ##
+Added the possibility to open a terminal at 
+the location of the bookmark
+
+#####################
+#### DESCRIPTION ####
+#####################
+
+This workflow allows you to open a folder in the Finder via bookmark.
+
+You will be able to add bookmarks and also delete the ones you have added.
+
+When typing the query suggestions of bookmarks are showed directly in Alfred.
+
+It will save you a lot of time if you always jump from a folder to another :)
+
+####################################
+#### INSTALLATION / REQUIREMENT ####
+####################################
+
+In order to use this you will have first to install some package ( and ruby if it's not already on your machine).
+
+1) Install macport from this website:
+	- http://www.macports.org/install.php
+	
+	Please read carefully the requirement of MacPort.
+	Then download and install your suited version of MacPorts.
+
+2) Install Bash:
+	- the jump command doesn't support apple bash so you need to 
+	  install the one on MacPort via:
+		sudo port install bash
+	
+	- And then follow the step 3 there:
+		https://trac.macports.org/wiki/howto/bash-completion
+
+3) Install jump:
+ 	Follow the instruction of the creator: 
+		https://github.com/flavio/jump
+	
+If you want to install bash-completion follow the next step
+
+
+4) Install "bash-completion" and not (bash_completion): 
+	You will have to make some change to use it:
+	- https://trac.macports.org/wiki/howto/bash-completion
+
+	- And then follow the rest of the instruction founded there https://github.com/flavio/jump
+
+5) Test it and use it :)
+
+
+###############################
+#### USAGE OF THE WORKFLOW ####		
+###############################
+
+j {query}
+
+
+if ({query} == * )
+	show all of the bookmark
+
+if (ALT button is also pressed) {
+	if (query matches one or more bookmark) {
+		it will take the path of the frontmost window 
+		and replace the current path of the selected bookmark
+	} else {
+		It will create a new bookmark with:
+			- the path of the frontmost window 
+			- the query as name
+	}
+} else if (CTRL button is pressed) {
+	if (query matches one or more bookmark) {
+		It will delete the currently selected bookmark
+	} else {
+		It will show a notification that it couldn't be done
+	}
+} else if (SHIFT button is pressed) {
+	if (query matches one or more bookmark) {
+		It will open a Terminal window at the path of the bookmark
+	} else {
+		It will show a notification that it couldn't be done
+	}
+} else { // no button is pressed
+	if (query matches one or more bookmark) {
+		Jump to the folder of the selected bookmark. 
+	} else {
+		Show a notification that this bookmark doesn't exist
+	}
+}
+
+#############################
+#### CREDITS / COPYRIGHT ####
+#############################
+
+Many thanks to:
+
+- Flavio (https://github.com/flavio/jump)
+  which created the shell script.
+
+
+- Ezial a friend of mine which shows me this script :)
+
+
+If you have some suggestions or bug report email me @ 
+alfredlotl (at) gmail (dot) com</string>
+	<key>uidata</key>
+	<dict>
+		<key>52D139E6-5ADB-4587-A9BC-F5A490F0EDCA</key>
+		<dict>
+			<key>ypos</key>
+			<real>40</real>
+		</dict>
+		<key>54803921-72D2-4864-95E8-5BCB367A326D</key>
+		<dict>
+			<key>ypos</key>
+			<real>290</real>
+		</dict>
+		<key>9A9F3658-0B62-4708-89CD-2F5D34F2BC37</key>
+		<dict>
+			<key>ypos</key>
+			<real>210</real>
+		</dict>
+		<key>B053DB21-0220-4077-9ADE-8A18C8E9A333</key>
+		<dict>
+			<key>ypos</key>
+			<real>220</real>
+		</dict>
+		<key>B69F7EBC-4EB4-4BCA-B7BF-04D21D7F2FD8</key>
+		<dict>
+			<key>ypos</key>
+			<real>140</real>
+		</dict>
+		<key>F729BB18-C83C-4A56-8FB3-0837BE0762FD</key>
+		<dict>
+			<key>ypos</key>
+			<real>390</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>
