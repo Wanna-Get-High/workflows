@@ -73,11 +73,18 @@
 	</array>
 	<key>readme</key>
 	<string>#####################
-#### Version 1.0 ####
+#### Version 1.1 ####
 #####################
 
+## 1.0 ##
+	basics finished:
+		- open the selected tab
+
+## 1.1 ##
+	adding JSON parse for chrome file bookmark
+
 TO DO :
-	- make a better file parsing on Bookmark
+	- add the possibility to open all bookmarks from a folder
 
 #####################
 #### DESCRIPTION ####
@@ -93,13 +100,14 @@ When you type the query it gets the suggestion from the file Bookmark with that 
 #### INSTALLATION / REQUIREMENT  #####
 ######################################
 
-The only thing you need is ruby that's all :)
+You will need to install JSON :
+	gem install json
 
 ###############################
 #### USAGE OF THE WORKFLOW ####
 ###############################
 
-Usage : sb {query}
+Usage : ob {query}
 
 #############################
 #### CREDITS / COPYRIGHT ####

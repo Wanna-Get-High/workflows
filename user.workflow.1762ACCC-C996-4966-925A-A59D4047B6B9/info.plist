@@ -99,20 +99,29 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>applescript</key>
-				<string>on alfred_script(q)
-	set returnedPath to do shell script "jump-bin " &amp; q	set pwd to do shell script "pwd"	if returnedPath is equal to pwd then
-		do shell script "echo The bookmark \\'" &amp; q &amp; "\\' isn\\'t found in jump bookmarks"
-	else
-		tell application "Finder" to activate		do shell script "open " &amp; quoted form of returnedPath	end if
-end alfred_script</string>
-				<key>cachescript</key>
-				<false/>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>j</string>
+				<key>runningsubtext</key>
+				<string>Loading bookmarks</string>
+				<key>script</key>
+				<string>ruby suggest.rb '{query}'</string>
+				<key>subtext</key>
+				<string>Open the folder in the Finder that is pointed by the bookmark of jump-bin script</string>
+				<key>title</key>
+				<string>Jump to the folder</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.applescript</string>
+			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>52D139E6-5ADB-4587-A9BC-F5A490F0EDCA</string>
+			<string>B053DB21-0220-4077-9ADE-8A18C8E9A333</string>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -162,6 +171,24 @@ end alfred_script</string>
 			<dict>
 				<key>applescript</key>
 				<string>on alfred_script(q)
+	set returnedPath to do shell script "jump-bin " &amp; q	set pwd to do shell script "pwd"	if returnedPath is equal to pwd then
+		do shell script "echo The bookmark \\'" &amp; q &amp; "\\' isn\\'t found in jump bookmarks"
+	else
+		tell application "Finder" to activate		do shell script "open " &amp; quoted form of returnedPath	end if
+end alfred_script</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>52D139E6-5ADB-4587-A9BC-F5A490F0EDCA</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
 	set returnedPath to do shell script "jump-bin " &amp; q	set pwd to do shell script "pwd"		if returnedPath is equal to pwd then		do shell script "echo The bookmark \\'" &amp; q &amp; "\\' isn\\'t found in jump 	bookmarks"	else		tell application "Terminal"			-- this open a new terminal window			do script " "			-- this use the command cd			do script with command "cd " &amp; quoted form of returnedPath in window 1			activate		end tell	end if
 end alfred_script</string>
 				<key>cachescript</key>
@@ -187,37 +214,10 @@ end alfred_script</string>
 			<key>uid</key>
 			<string>F729BB18-C83C-4A56-8FB3-0837BE0762FD</string>
 		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>escaping</key>
-				<integer>63</integer>
-				<key>keyword</key>
-				<string>j</string>
-				<key>runningsubtext</key>
-				<string>Loading bookmarks</string>
-				<key>script</key>
-				<string>ruby suggest.rb '{query}'</string>
-				<key>subtext</key>
-				<string>Open the folder in the Finder that is pointed by the bookmark of jump-bin script</string>
-				<key>title</key>
-				<string>Jump to the folder</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>B053DB21-0220-4077-9ADE-8A18C8E9A333</string>
-		</dict>
 	</array>
 	<key>readme</key>
 	<string>#####################
-#### Version 1.1 ####
+#### Version 1.1 #######
 #####################
 
 ## 1.0 ##
@@ -225,13 +225,14 @@ Basics are settled :
 	- adding
 	- removing 
 	- jumping to finder folder
- 
-TO DO :
-	- add the possibility to open a terminal at the bookmark
 
 ## 1.1 ##
-Added the possibility to open a terminal at 
-the location of the bookmark
+Added the possibility to open a terminal at the location of the bookmark
+
+TODO:
+	fix the showing of the opened folder.
+	If a folder is opened in another space 
+		will open the folder in the current space but show the folder opened in the other space
 
 #####################
 #### DESCRIPTION ####
