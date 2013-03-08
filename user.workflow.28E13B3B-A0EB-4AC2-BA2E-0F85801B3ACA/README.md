@@ -17,7 +17,7 @@ When you type the query it gets the suggestion of google from that query and put
 
 # INSTALLATION / REQUIREMENT
 
-The only thing you need is ruby that's all :)
+The only thing you need is ruby and google chrome that's all :)
 
 
 # USAGE OF THE WORKFLOW
