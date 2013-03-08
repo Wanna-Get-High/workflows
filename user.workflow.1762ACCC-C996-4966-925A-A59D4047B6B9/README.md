@@ -66,9 +66,11 @@ j {query}
 
 > if ({query} == * )
 > > show all of the bookmark
+>
 > if (ALT button is also pressed) 
 > > if (query matches one or more bookmark) 
 > > > it will take the path of the frontmost window and replace the current path of the selected bookmark
+> > 
 > > else 
 > > > It will create a new bookmark with: 
 > > > > the path of the frontmost window
