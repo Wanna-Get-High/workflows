@@ -2,12 +2,12 @@
 # Version 1.1
 
 ## 1.0
-> - basics finished: show the tabs
+> basics finished: show the tabs
 
 ## 1.1
-> - added comments to the code
-> - fixed some small issue 
-> - reduced the code length
+> -added comments to the code
+> fixed some small issue 
+> reduced the code length
 
 
 # DESCRIPTION
