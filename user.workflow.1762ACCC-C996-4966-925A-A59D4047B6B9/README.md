@@ -75,25 +75,36 @@ j {query}
 > > > It will create a new bookmark with: 
 > > > > the path of the frontmost window
 > > > > the query as name
+> >
 > > end if
+>
 > else if (CTRL button is pressed)
 > > if (query matches one or more bookmark)
 > > > It will delete the currently selected bookmark
+> >
 > > else
 > > > It will show a notification that it couldn't be done
+> >
 > > end if
+>
 >  else if (SHIFT button is pressed)
 > > if (query matches one or more bookmark)
 > > > It will open a Terminal window at the path of the bookmark
+> >
 > > else 
 > > > It will show a notification that it couldn't be done
+> >
 > > end if
+> 
 > else // no button is pressed
 > > if (query matches one or more bookmark) 
 > > > Jump to the folder of the selected bookmark. 
+> >
 > > else 
 > > > Show a notification that this bookmark doesn't exist
+> >
 > > end if
+>
 > end if
 
 
