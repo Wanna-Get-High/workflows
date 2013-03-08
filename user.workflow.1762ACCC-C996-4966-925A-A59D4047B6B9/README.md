@@ -77,6 +77,7 @@ if (ALT button is also pressed)
 > > > the query as name
 >
 > end if
+
 else if (CTRL button is pressed)
 > if (query matches one or more bookmark)
 > > It will delete the currently selected bookmark
@@ -85,6 +86,7 @@ else if (CTRL button is pressed)
 > > It will show a notification that it couldn't be done
 >
 > end if
+
 else if (SHIFT button is pressed)
 > if (query matches one or more bookmark)
 > > It will open a Terminal window at the path of the bookmark
@@ -93,6 +95,7 @@ else if (SHIFT button is pressed)
 > > It will show a notification that it couldn't be done
 >
 > end if
+
 else // no button is pressed
 > if (query matches one or more bookmark) 
 > > Jump to the folder of the selected bookmark. 
@@ -101,6 +104,7 @@ else // no button is pressed
 > > Show a notification that this bookmark doesn't exist
 >
 > end if
+
 end if
 
 
