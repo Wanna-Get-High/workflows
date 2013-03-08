@@ -65,61 +65,34 @@ j {query}
 
 
 > if ({query} == * )
-
 > > show all of the bookmark
-
-> if (ALT button is also pressed) {
-
-> > if (query matches one or more bookmark) {
-
+> if (ALT button is also pressed) 
+> > if (query matches one or more bookmark) 
 > > > it will take the path of the frontmost window and replace the current path of the selected bookmark
-
-> > } else {
-
+> > else 
 > > > It will create a new bookmark with: 
 > > > > the path of the frontmost window
-
 > > > > the query as name
-
-> > }
-
-> } else if (CTRL button is pressed) {
-
-> > if (query matches one or more bookmark) {
-
+> > end if
+> else if (CTRL button is pressed)
+> > if (query matches one or more bookmark)
 > > > It will delete the currently selected bookmark
-
-> > } else {
-
+> > else
 > > > It will show a notification that it couldn't be done
-
-> > }
-
-> } else if (SHIFT button is pressed) {
-
-> > if (query matches one or more bookmark) {
-
+> > end if
+>  else if (SHIFT button is pressed)
+> > if (query matches one or more bookmark)
 > > > It will open a Terminal window at the path of the bookmark
-
-> > } else {
-
+> > else 
 > > > It will show a notification that it couldn't be done
-
-> > }
-
-> } else { // no button is pressed
-
-> > if (query matches one or more bookmark) {
-
+> > end if
+> else // no button is pressed
+> > if (query matches one or more bookmark) 
 > > > Jump to the folder of the selected bookmark. 
-
-> > } else {
-
+> > else 
 > > > Show a notification that this bookmark doesn't exist
-
-> > }
-
-> }
+> > end if
+> end if
 
 
 # CREDITS / COPYRIGHT
