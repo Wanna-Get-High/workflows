@@ -78,6 +78,7 @@ j {query}
 
 > > > It will create a new bookmark with: 
 > > > > the path of the frontmost window
+
 > > > > the query as name
 
 > > }
