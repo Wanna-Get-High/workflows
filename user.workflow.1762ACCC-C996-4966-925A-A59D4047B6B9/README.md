@@ -64,10 +64,11 @@ It will save you a lot of time if you always jump from a folder to another :)
 j {query}
 
 
-if ({query} == * )
-> show all of the bookmark
+> if ({query} == * )
+> > show all of the bookmark
 
 > if (ALT button is also pressed) {
+
 > > if (query matches one or more bookmark) {
 > > > it will take the path of the frontmost window and replace the current path of the selected bookmark
 > > } else {
@@ -75,24 +76,31 @@ if ({query} == * )
 > > > > the path of the frontmost window
 > > > > the query as name
 > > }
+
 > } else if (CTRL button is pressed) {
+
 > > if (query matches one or more bookmark) {
 > > > It will delete the currently selected bookmark
 > > } else {
 > > > It will show a notification that it couldn't be done
 > > }
+
 > } else if (SHIFT button is pressed) {
+
 > > if (query matches one or more bookmark) {
 > > > It will open a Terminal window at the path of the bookmark
 > > } else {
 > > > It will show a notification that it couldn't be done
 > > }
+
 > } else { // no button is pressed
+
 > > if (query matches one or more bookmark) {
 > > > Jump to the folder of the selected bookmark. 
 > > } else {
 > > > Show a notification that this bookmark doesn't exist
 > > }
+
 > }
 
 
