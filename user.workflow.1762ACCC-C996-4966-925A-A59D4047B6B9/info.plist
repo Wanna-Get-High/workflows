@@ -170,12 +170,22 @@ end alfred_script</string>
 			<key>config</key>
 			<dict>
 				<key>applescript</key>
-				<string>on alfred_script(q)
-	set returnedPath to do shell script "jump-bin " &amp; q	set pwd to do shell script "pwd"	if returnedPath is equal to pwd then
-		do shell script "echo The bookmark \\'" &amp; q &amp; "\\' isn\\'t found in jump bookmarks"
-	else
-		tell application "Finder" to activate		do shell script "open " &amp; quoted form of returnedPath	end if
+				<string>on alfred_script(q)set returnedValue to do shell script "jump-bin -d " &amp; q	if returnedValue is equal to "" then		do shell script "echo The bookmark \\'" &amp; q &amp; "\\' isn\\'t found in jump bookmarks"	else		do shell script "echo Bookmark " &amp; q &amp; " deleted"	end if
+
 end alfred_script</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>F729BB18-C83C-4A56-8FB3-0837BE0762FD</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)	set returnedPath to do shell script "jump-bin " &amp; q	set pwd to do shell script "pwd"		if returnedPath is equal to pwd then		do shell script "echo The bookmark \\'" &amp; q ¬			&amp; "\\' isn\\'t found in jump bookmarks"	else		tell application "Finder"						set returnedPath to (do shell script "echo " &amp; ¬				quoted form of returnedPath &amp; " | tr / :") as alias						-- open the folder			open folder returnedPath						-- activate so that it goes on finder 			activate						-- "Re"-open the folder so the focus is on it 			-- wherever you are (even on a different space)			open folder returnedPath					end tell	end ifend alfred_script</string>
 				<key>cachescript</key>
 				<false/>
 			</dict>
@@ -199,24 +209,9 @@ end alfred_script</string>
 			<key>uid</key>
 			<string>B69F7EBC-4EB4-4BCA-B7BF-04D21D7F2FD8</string>
 		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>applescript</key>
-				<string>on alfred_script(q)set returnedValue to do shell script "jump-bin -d " &amp; q	if returnedValue is equal to "" then		do shell script "echo The bookmark \\'" &amp; q &amp; "\\' isn\\'t found in jump bookmarks"	else		do shell script "echo Bookmark " &amp; q &amp; " deleted"	end if
-
-end alfred_script</string>
-				<key>cachescript</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.applescript</string>
-			<key>uid</key>
-			<string>F729BB18-C83C-4A56-8FB3-0837BE0762FD</string>
-		</dict>
 	</array>
 	<key>readme</key>
-	<string># Version 1.1
+	<string># Version 1.2
 
 ## 1.0
 &gt; Basics are settled :
@@ -227,10 +222,13 @@ end alfred_script</string>
 ## 1.1
 &gt; Added the possibility to open a terminal at the location of the bookmark
 
-## TODO:
-&gt; fix the showing of the opened folder :
-&gt; &gt; If a folder is opened in another space will open the folder in the current space but show the folder opened in the other space
+## 1.2
+&gt; fixed the fact that the focus wasn't on it if you were in a different space
 
+## TODO:
+&gt; Being able to detect if a terminal is already open in the selected directory 
+&gt; &gt; if true put the focus on this terminal (if there are several propose a list)
+&gt; &gt; if false open a new one
 
 # DESCRIPTION
 

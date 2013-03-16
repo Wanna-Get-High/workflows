@@ -16,6 +16,14 @@
 				<key>modifiersubtext</key>
 				<string></string>
 			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>927DA240-D5E7-4810-9207-87BB7554371C</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
 		</array>
 	</dict>
 	<key>createdby</key>
@@ -42,6 +50,19 @@
 			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
 			<string>A744A966-9B2D-4EB2-9316-242586642D23</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>927DA240-D5E7-4810-9207-87BB7554371C</string>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -109,6 +130,11 @@ ob {query}
 If you have some suggestions or bug report email me @ alfredlotl (at) gmail (dot) com</string>
 	<key>uidata</key>
 	<dict>
+		<key>927DA240-D5E7-4810-9207-87BB7554371C</key>
+		<dict>
+			<key>ypos</key>
+			<real>130</real>
+		</dict>
 		<key>A744A966-9B2D-4EB2-9316-242586642D23</key>
 		<dict>
 			<key>ypos</key>

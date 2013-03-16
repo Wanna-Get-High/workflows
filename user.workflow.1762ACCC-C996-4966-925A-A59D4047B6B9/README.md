@@ -1,4 +1,4 @@
-# Version 1.1
+# Version 1.2
 
 ## 1.0
 > Basics are settled :
@@ -9,10 +9,13 @@
 ## 1.1
 > Added the possibility to open a terminal at the location of the bookmark
 
-## TODO:
-> fix the showing of the opened folder :
-> > If a folder is opened in another space will open the folder in the current space but show the folder opened in the other space
+## 1.2
+> fixed the fact that the focus wasn't on it if you were in a different space
 
+## TODO:
+> Being able to detect if a terminal is already open in the selected directory 
+> > if true put the focus on this terminal (if there are several propose a list)
+> > if false open a new one
 
 # DESCRIPTION
 

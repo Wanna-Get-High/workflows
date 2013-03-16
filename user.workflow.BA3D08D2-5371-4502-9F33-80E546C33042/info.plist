@@ -68,14 +68,14 @@
 				<integer>0</integer>
 				<key>script</key>
 				<string>include( 'updater.php' );
-ext_update( '{query}' );</string>
+ext_install( '{query}' );</string>
 				<key>type</key>
 				<integer>1</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>E55A4DEF-5331-4A37-A13B-BE6BE4E3DC71</string>
+			<string>927F2F9D-6882-4E34-AD8F-A004D12444EB</string>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -167,14 +167,14 @@ else
 				<integer>0</integer>
 				<key>script</key>
 				<string>include( 'updater.php' );
-ext_install( '{query}' );</string>
+ext_update( '{query}' );</string>
 				<key>type</key>
 				<integer>1</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>927F2F9D-6882-4E34-AD8F-A004D12444EB</string>
+			<string>E55A4DEF-5331-4A37-A13B-BE6BE4E3DC71</string>
 		</dict>
 	</array>
 	<key>uidata</key>
@@ -182,27 +182,27 @@ ext_install( '{query}' );</string>
 		<key>76010780-B5B0-45CE-A483-C6E578A4629B</key>
 		<dict>
 			<key>ypos</key>
-			<real>260</real>
+			<real>90</real>
 		</dict>
 		<key>85B19844-D25D-4DCA-8A1F-50BC7264A1F3</key>
 		<dict>
 			<key>ypos</key>
-			<real>110</real>
+			<real>250</real>
 		</dict>
 		<key>927F2F9D-6882-4E34-AD8F-A004D12444EB</key>
 		<dict>
 			<key>ypos</key>
-			<real>110</real>
+			<real>250</real>
 		</dict>
 		<key>D9C82B07-7CF4-4A72-AA13-5A8A88ABFB3C</key>
 		<dict>
 			<key>ypos</key>
-			<real>190</real>
+			<real>170</real>
 		</dict>
 		<key>E55A4DEF-5331-4A37-A13B-BE6BE4E3DC71</key>
 		<dict>
 			<key>ypos</key>
-			<real>260</real>
+			<real>90</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>
