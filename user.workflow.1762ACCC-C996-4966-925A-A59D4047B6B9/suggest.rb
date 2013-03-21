@@ -13,8 +13,6 @@ def buildXMLItemFor(arg, title, subtitle, valid, icon)
 end
 
 
-
-
 # return all of the items contained in jmpFilePath in wich query is included
 def getItemsForQuery(jmpFilePath, query)
   tab =  "<items>"

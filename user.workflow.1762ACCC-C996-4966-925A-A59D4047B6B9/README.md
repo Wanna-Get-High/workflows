@@ -1,4 +1,4 @@
-# Version 1.2
+# Version 1.3
 
 ## 1.0
 > Basics are settled :
@@ -11,6 +11,9 @@
 
 ## 1.2
 > fixed the fact that the focus wasn't on it if you were in a different space
+
+## 1.3
+> added the possibility to search with more than one world
 
 ## TODO:
 > Being able to detect if a terminal is already open in the selected directory 
