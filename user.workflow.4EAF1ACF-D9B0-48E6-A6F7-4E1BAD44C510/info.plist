@@ -39,11 +39,29 @@
 			<key>uid</key>
 			<string>3D4A111C-2361-437E-8F28-261D7C4F109C</string>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>--set selectedItem to (POSIX path of (the selection as alias))set theSelection to (selection of application "Finder") as alias--set theSelectionFolder to POSIX path of theSelection--set theSelectionFolder to folder of (selection of application "Finder") --as alias--tell application "Finder" to open folder (":Users:WannaGetHigh:Documents" as alias)display dialog folder of theSelection(*if (theSel's length) is equal to 1 then		tell application "Finder" to set fPaths to files of ":Users:WannaGetHigh:Documents"		set fileName to name of (info for theSel as alias)		display dialog fileName		repeat with thisFilePath in fPaths		if name extension of thisFilePath is in validExtensions then			display dialog thisFilePath as string		end if	end repeat	else	return "Select only one file"end if*)(*set pathList to {}repeat with anItem in theSel	set the end of pathList to name of (info for anItem as alias)end repeatset {TID, text item delimiters} to {text item delimiters, return}set the clipboard to pathList as textset text item delimiters to TIDset s to "Today is my birthday"set AppleScript's text item delimiters to "my"text item 1 of s*)</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>211E68DE-4C6E-438D-8CB6-653FBF7639A6</string>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>211E68DE-4C6E-438D-8CB6-653FBF7639A6</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
 		<key>3D4A111C-2361-437E-8F28-261D7C4F109C</key>
 		<dict>
 			<key>ypos</key>

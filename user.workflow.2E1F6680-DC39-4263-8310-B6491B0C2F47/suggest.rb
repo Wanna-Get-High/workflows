@@ -8,7 +8,7 @@ $xmlItem = ""
 
 
 # build the xml form recursively
-def recursiveXmlBuildFrom(array,query)
+def recursiveXmlBuildFrom(array, queryArray)
     
     # for each item in the array (hash)
     array.each { | item |
@@ -23,15 +23,26 @@ def recursiveXmlBuildFrom(array,query)
             name = item.fetch("name").gsub("&", "&amp;")
             lowerCaseName = name.tr("A-Z","a-z")
             url = item.fetch("url").gsub("&", "&amp;")
-
-            if (url.include?query or lowerCaseName.include?query or query.eql?"*") then 
+            
+            containsAllItemQuery = true
+            
+            # if all of the elements of the querryArray is contained in either
+            # the url or the name of the tab -> add it
+            queryArray.each { | query |
+                if (not (url.include?query or lowerCaseName.include?query or query.eql?"*")) then
+                    containsAllItemQuery = false
+                end
+            }
+            
+            if containsAllItemQuery then
                 $xmlItem += buildXMLItemWith(url,name,url,"yes","icon.png")
             end
+            
         else
             # else if it's a folder 
             # recursively call the method with the children of this folder (array of hash)
             if (type.eql?"folder") then
-                recursiveXmlBuildFrom(item.fetch("children"),query)
+                recursiveXmlBuildFrom(item.fetch("children"),queryArray)
             end
         end
     }
@@ -51,8 +62,9 @@ def getItemsFrom(query)
     array = data.fetch("roots").fetch("bookmark_bar").fetch("children")
     
     # fill the $xmlItem variable with the items corresponding to the query
-    recursiveXmlBuildFrom(array,query)
-    
+    # the query will be splited if more than one word is used to search
+    recursiveXmlBuildFrom(array,query.split(" "))
+
     # return the xml form to alfred
     return "<items>" + $xmlItem + "</items>"
 end
@@ -71,10 +83,8 @@ def buildXMLItemWith(arg, title, subtitle, valid, icon)
 end
 
 
-
 # the starting point
 puts getItemsFrom($*[0])
-
 
 
 

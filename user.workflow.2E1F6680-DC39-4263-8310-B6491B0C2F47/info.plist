@@ -70,7 +70,7 @@
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>escaping</key>
-				<integer>63</integer>
+				<integer>62</integer>
 				<key>keyword</key>
 				<string>ob</string>
 				<key>runningsubtext</key>
@@ -96,10 +96,13 @@
 	<string># Version 1.1
 
 ## 1.0
-&gt; basics finished: open the selected tab
+&gt; Basics finished: open the selected tab
 
 ## 1.1
-&gt; adding JSON parse for chrome file bookmark
+&gt; Adding JSON parse for chrome file bookmark
+
+## 1.2
+&gt; Added the possibility to search with more than one word
 
 ## TO DO :
 &gt; add the possibility to open all bookmarks from a folder

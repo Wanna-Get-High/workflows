@@ -1,10 +1,13 @@
 # Version 1.1
 
 ## 1.0
-> basics finished: open the selected tab
+> Basics finished: open the selected tab
 
 ## 1.1
-> adding JSON parse for chrome file bookmark
+> Adding JSON parse for chrome file bookmark
+
+## 1.2
+> Added the possibility to search with more than one word
 
 ## TO DO :
 > add the possibility to open all bookmarks from a folder

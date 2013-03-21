@@ -133,7 +133,7 @@ If you have some suggestions or bug report email me @ alfredlotl (at) gmail (dot
 		<key>BF619F52-09B4-4D62-9671-28A071C1D2F5</key>
 		<dict>
 			<key>ypos</key>
-			<real>130</real>
+			<real>120</real>
 		</dict>
 		<key>DBB5B71D-F189-4A40-B077-44C807651CDC</key>
 		<dict>
@@ -143,7 +143,7 @@ If you have some suggestions or bug report email me @ alfredlotl (at) gmail (dot
 		<key>EAD22D66-2847-4CBD-8CD8-048B559EFFD3</key>
 		<dict>
 			<key>ypos</key>
-			<real>10</real>
+			<real>70</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>

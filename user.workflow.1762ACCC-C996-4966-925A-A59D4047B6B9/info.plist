@@ -170,6 +170,21 @@ end alfred_script</string>
 			<key>config</key>
 			<dict>
 				<key>applescript</key>
+				<string>on alfred_script(q)
+	set returnedPath to do shell script "jump-bin " &amp; q	set pwd to do shell script "pwd"		if returnedPath is equal to pwd then		do shell script "echo The bookmark \\'" &amp; q &amp; "\\' isn\\'t found in jump 	bookmarks"	else		tell application "Terminal"			-- this open a new terminal window			do script " "			-- this use the command cd			do script with command "cd " &amp; quoted form of returnedPath in window 1			activate		end tell	end if
+end alfred_script</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>B69F7EBC-4EB4-4BCA-B7BF-04D21D7F2FD8</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
 				<string>on alfred_script(q)set returnedValue to do shell script "jump-bin -d " &amp; q	if returnedValue is equal to "" then		do shell script "echo The bookmark \\'" &amp; q &amp; "\\' isn\\'t found in jump bookmarks"	else		do shell script "echo Bookmark " &amp; q &amp; " deleted"	end if
 
 end alfred_script</string>
@@ -193,21 +208,6 @@ end alfred_script</string>
 			<string>alfred.workflow.action.applescript</string>
 			<key>uid</key>
 			<string>52D139E6-5ADB-4587-A9BC-F5A490F0EDCA</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>applescript</key>
-				<string>on alfred_script(q)
-	set returnedPath to do shell script "jump-bin " &amp; q	set pwd to do shell script "pwd"		if returnedPath is equal to pwd then		do shell script "echo The bookmark \\'" &amp; q &amp; "\\' isn\\'t found in jump 	bookmarks"	else		tell application "Terminal"			-- this open a new terminal window			do script " "			-- this use the command cd			do script with command "cd " &amp; quoted form of returnedPath in window 1			activate		end tell	end if
-end alfred_script</string>
-				<key>cachescript</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.applescript</string>
-			<key>uid</key>
-			<string>B69F7EBC-4EB4-4BCA-B7BF-04D21D7F2FD8</string>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -340,32 +340,32 @@ alfredlotl (at) gmail (dot) com</string>
 		<key>52D139E6-5ADB-4587-A9BC-F5A490F0EDCA</key>
 		<dict>
 			<key>ypos</key>
-			<real>40</real>
+			<real>10</real>
 		</dict>
 		<key>54803921-72D2-4864-95E8-5BCB367A326D</key>
 		<dict>
 			<key>ypos</key>
-			<real>290</real>
+			<real>240</real>
 		</dict>
 		<key>9A9F3658-0B62-4708-89CD-2F5D34F2BC37</key>
 		<dict>
 			<key>ypos</key>
-			<real>210</real>
+			<real>180</real>
 		</dict>
 		<key>B053DB21-0220-4077-9ADE-8A18C8E9A333</key>
 		<dict>
 			<key>ypos</key>
-			<real>220</real>
+			<real>170</real>
 		</dict>
 		<key>B69F7EBC-4EB4-4BCA-B7BF-04D21D7F2FD8</key>
 		<dict>
 			<key>ypos</key>
-			<real>140</real>
+			<real>110</real>
 		</dict>
 		<key>F729BB18-C83C-4A56-8FB3-0837BE0762FD</key>
 		<dict>
 			<key>ypos</key>
-			<real>390</real>
+			<real>340</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>
