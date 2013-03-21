@@ -19,6 +19,9 @@ end
 def getItemsForQuery(jmpFilePath, query)
   tab =  "<items>"
   
+  # split the query in an array for each word  
+  queryArray = query.split(" ") 
+  
   # for each line in jmpFilePath do
   File.open(jmpFilePath, "r").each_line.each { |line|
     
@@ -28,7 +31,17 @@ def getItemsForQuery(jmpFilePath, query)
       argTitle = line[0,index]
       subtitle = "jump to: " + line[index+2..-1]
 
-      if (query.eql?"*" or line[0,index].include?(query)) then
+      containsAllQueryItem = true
+      
+      # if all of the elements of the querryArray is contained in
+      # the argTitle (the title of the bookmark) -> add it
+      queryArray.each { | query |
+          if (not (query.eql?"*" or argTitle.include?(query))) then
+              containsAllQueryItem = false
+          end
+      }
+
+      if containsAllQueryItem then
         tab += buildXMLItemFor(argTitle, argTitle, subtitle, "yes",  "icon.png")
       end
       

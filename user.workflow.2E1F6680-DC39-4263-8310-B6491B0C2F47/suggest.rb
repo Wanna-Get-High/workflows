@@ -24,17 +24,17 @@ def recursiveXmlBuildFrom(array, queryArray)
             lowerCaseName = name.tr("A-Z","a-z")
             url = item.fetch("url").gsub("&", "&amp;")
             
-            containsAllItemQuery = true
+            containsAllQueryItem = true
             
             # if all of the elements of the querryArray is contained in either
             # the url or the name of the tab -> add it
             queryArray.each { | query |
                 if (not (url.include?query or lowerCaseName.include?query or query.eql?"*")) then
-                    containsAllItemQuery = false
+                    containsAllQueryItem = false
                 end
             }
             
-            if containsAllItemQuery then
+            if containsAllQueryItem then
                 $xmlItem += buildXMLItemWith(url,name,url,"yes","icon.png")
             end
             
