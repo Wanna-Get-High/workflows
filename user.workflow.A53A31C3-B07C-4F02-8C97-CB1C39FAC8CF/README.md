@@ -1,16 +1,16 @@
-# Version 1.0
+# Version 1.1
 
 ## 1.0
-> opening SABnzbd and other tabs 
+> opening SABnzbd and other tabs
+> tabs to open or close are defined in tab_to_open_or_close.rb
+
+## 1.1
+> fixed the issue that SAB doesn't open with applescript (since version 0.7.11)
+> Being able not to open the SABnzbd tab twice
 
 ## TO DO: 
-> Fix the issue that SAB doesn't open with applescript (since version 0.7.11)
->
-> Being able not to open the SABnzbd tab twice.
->
 > Close all tab whatever the reason is.
->
-> Change the declaration of the different URL (script filter)
+
 
 # DESCRIPTION
 

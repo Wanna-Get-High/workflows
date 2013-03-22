@@ -10,6 +10,14 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
+				<string>09E5FF01-DDFD-4DFA-B470-5D25BB57DB07</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
 				<string>E21D8664-9F4D-4D6D-8C5F-BB40480AAB60</string>
 				<key>modifiers</key>
 				<integer>0</integer>
@@ -51,9 +59,9 @@
 				<string>opening SABnzbd and the tabs</string>
 				<key>script</key>
 				<string># In order to add or remove tabs to be openned 
-# go check the function getItemsForSABnzbd() in suggest.rb
+# go check the function getTabsToOpenOrClose() in tab_to_open_or_close.rb
 
-ruby suggest.rb</string>
+ruby tab_to_open_or_close.rb</string>
 				<key>subtext</key>
 				<string>Open SABnzbd with other tabs, use alt+enter to quit SABnzbd and close tabs</string>
 				<key>title</key>
@@ -72,11 +80,7 @@ ruby suggest.rb</string>
 			<key>config</key>
 			<dict>
 				<key>applescript</key>
-				<string>on alfred_script(q)
-	tell application "SABnzbd"
-		activate
-		delay 1
-	end tell	tell application "Google Chrome"		-- This list contain the URL of the tab you want to open		-- add or remove any URL of your choice
+				<string>on alfred_script(q)	delay 2	tell application "Google Chrome"		-- This list contain the URL of the tab you want to open		-- add or remove any URL of your choice
 		set listeTabToOpen to my explode(" ", q)
 				-- This list will be used to check if one of the tabs		-- in the listeTabToOpen has to be openned 		set listTabOpenned to {}				----------------------------------------------		-- Open a window if no window is openned		----------------------------------------------		if ((count every window) is equal to 0) then			make new window		end if				----------------------------------------------		-- init the boolean list		----------------------------------------------		repeat with i from 1 to (count of listeTabToOpen) by 1			set listTabOpenned to listTabOpenned &amp; true		end repeat				----------------------------------------------		-- Get to know if the tabs in the listeTabToOpen 		-- are already openned		----------------------------------------------		repeat with theWindow in every window			repeat with theTab in every tab of theWindow				repeat with i from 1 to (count of listeTabToOpen) by 1					if ((item i of listeTabToOpen) is equal to (theTab's URL)) then						set item i of listTabOpenned to false					end if				end repeat			end repeat		end repeat						----------------------------------------------		-- Open the tab in the listeTabToOpen 		-- that are not open		----------------------------------------------		repeat with i from 1 to (count of listeTabToOpen) by 1			set elem to item i of listTabOpenned			if (elem is equal to true) then				set newTab to item i of listeTabToOpen				tell window 1 to make new tab with properties {URL:newTab}			end if		end repeat
 		
@@ -92,6 +96,21 @@ ruby suggest.rb</string>
 			<string>alfred.workflow.action.applescript</string>
 			<key>uid</key>
 			<string>E21D8664-9F4D-4D6D-8C5F-BB40480AAB60</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>paths</key>
+				<array>
+					<string>/Applications/SABnzbd.app</string>
+				</array>
+				<key>toggle</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.launchfiles</string>
+			<key>uid</key>
+			<string>09E5FF01-DDFD-4DFA-B470-5D25BB57DB07</string>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -113,19 +132,19 @@ ruby suggest.rb</string>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string># Version 1.0
+	<string># Version 1.1
 
 ## 1.0
-&gt; opening SABnzbd and other tabs 
+&gt; opening SABnzbd and other tabs
+&gt; tabs to open or close are defined in tab_to_open_or_close.rb
+
+## 1.1
+&gt; fixed the issue that SAB doesn't open with applescript (since version 0.7.11)
+&gt; Being able not to open the SABnzbd tab twice
 
 ## TO DO: 
-&gt; Fix the issue that SAB doesn't open with applescript (since version 0.7.11)
-&gt;
-&gt; Being able not to open the SABnzbd tab twice.
-&gt;
 &gt; Close all tab whatever the reason is.
-&gt;
-&gt; Change the declaration of the different URL (script filter)
+
 
 # DESCRIPTION
 
@@ -164,20 +183,25 @@ end if
 If you have some suggestions or bug report email me @ alfredlotl (at) gmail (dot) com</string>
 	<key>uidata</key>
 	<dict>
-		<key>2386D79F-9D71-486E-BCF5-41B6B513C3A7</key>
+		<key>09E5FF01-DDFD-4DFA-B470-5D25BB57DB07</key>
 		<dict>
 			<key>ypos</key>
 			<real>10</real>
+		</dict>
+		<key>2386D79F-9D71-486E-BCF5-41B6B513C3A7</key>
+		<dict>
+			<key>ypos</key>
+			<real>70</real>
 		</dict>
 		<key>42E82EE9-F1D8-446E-BD03-552B0D128FCF</key>
 		<dict>
 			<key>ypos</key>
-			<real>140</real>
+			<real>270</real>
 		</dict>
 		<key>E21D8664-9F4D-4D6D-8C5F-BB40480AAB60</key>
 		<dict>
 			<key>ypos</key>
-			<real>10</real>
+			<real>120</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>
