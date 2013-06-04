@@ -6,7 +6,7 @@
 > Doesn't work for a multiple selection on the icon view
 
 ## TO DO:
-> make it work for the multiple selection on the icon view
+> Make it work for the multiple selection on the icon view
 
 # DESCRIPTION
 
