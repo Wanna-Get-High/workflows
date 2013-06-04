@@ -2,6 +2,7 @@
 
 ## 1.0
 > Showing the contextual menu works
+>
 > Doesn't work for a multiple selection on the icon view
 
 ## TO DO:
