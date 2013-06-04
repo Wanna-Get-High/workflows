@@ -80,7 +80,7 @@ ruby tab_to_open_or_close.rb</string>
 			<key>config</key>
 			<dict>
 				<key>applescript</key>
-				<string>on alfred_script(q)	delay 2	tell application "Google Chrome"		-- This list contain the URL of the tab you want to open		-- add or remove any URL of your choice
+				<string>on alfred_script(q)	delay 3	tell application "Google Chrome"		-- This list contain the URL of the tab you want to open		-- add or remove any URL of your choice
 		set listeTabToOpen to my explode(" ", q)
 				-- This list will be used to check if one of the tabs		-- in the listeTabToOpen has to be openned 		set listTabOpenned to {}				----------------------------------------------		-- Open a window if no window is openned		----------------------------------------------		if ((count every window) is equal to 0) then			make new window		end if				----------------------------------------------		-- init the boolean list		----------------------------------------------		repeat with i from 1 to (count of listeTabToOpen) by 1			set listTabOpenned to listTabOpenned &amp; true		end repeat				----------------------------------------------		-- Get to know if the tabs in the listeTabToOpen 		-- are already openned		----------------------------------------------		repeat with theWindow in every window			repeat with theTab in every tab of theWindow				repeat with i from 1 to (count of listeTabToOpen) by 1					if ((item i of listeTabToOpen) is equal to (theTab's URL)) then						set item i of listTabOpenned to false					end if				end repeat			end repeat		end repeat						----------------------------------------------		-- Open the tab in the listeTabToOpen 		-- that are not open		----------------------------------------------		repeat with i from 1 to (count of listeTabToOpen) by 1			set elem to item i of listTabOpenned			if (elem is equal to true) then				set newTab to item i of listeTabToOpen				tell window 1 to make new tab with properties {URL:newTab}			end if		end repeat
 		
@@ -191,12 +191,12 @@ If you have some suggestions or bug report email me @ alfredlotl (at) gmail (dot
 		<key>2386D79F-9D71-486E-BCF5-41B6B513C3A7</key>
 		<dict>
 			<key>ypos</key>
-			<real>70</real>
+			<real>10</real>
 		</dict>
 		<key>42E82EE9-F1D8-446E-BD03-552B0D128FCF</key>
 		<dict>
 			<key>ypos</key>
-			<real>270</real>
+			<real>230</real>
 		</dict>
 		<key>E21D8664-9F4D-4D6D-8C5F-BB40480AAB60</key>
 		<dict>

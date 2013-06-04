@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>WannaGetHigh.Contextual_Menu</string>
+	<key>connections</key>
+	<dict>
+		<key>B342BCCB-4C27-46C3-A0FD-B0402AF14E4D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>E7324332-7FC9-426B-B460-634E3C4DF82D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>E7324332-7FC9-426B-B460-634E3C4DF82D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D67AE23B-2FEB-47FD-9D11-F2C437151A00</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>François Lepan</string>
+	<key>description</key>
+	<string>Show the contextual menu on the finder selection</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Show Contextual Menu</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Right click</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>D67AE23B-2FEB-47FD-9D11-F2C437151A00</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>hotkey</key>
+				<integer>15</integer>
+				<key>hotmod</key>
+				<integer>524288</integer>
+				<key>hotstring</key>
+				<string>R</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>B342BCCB-4C27-46C3-A0FD-B0402AF14E4D</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+	-- Move finder on the forground	tell application "Finder" to activate	tell application "System Events"		tell process "Finder"					-- retrieve the selection of finder			set theSelection to selection of application "Finder"					-- if nothing is selected return a message for the notification			if theSelection is equal to {} then return "select a file or folder"					-- the name of the selected files			set selectedFileName to {}					-- set the names of the selection			repeat with selectionItem in theSelection				set selectedFileName to selectedFileName &amp; name of (info for selectionItem as alias)			end repeat							-----------------------------			-- For the list view			-----------------------------			try				tell outline 1 of scroll area 2 of splitter group 1 of window 1 to perform action "AXShowMenu"				return			end try							-----------------------------			-- For the icon view				-- impossibility to do with multiple selection			-----------------------------			try							repeat with img in every image of UI element 1 of scroll area 2 of splitter group 1 of window 1					repeat with selectionNameItem in selectedFileName						if (name of img as string) is equal to selectionNameItem as string then							tell img to perform action "AXShowMenu"							return						end if					end repeat					end repeat			end try					-----------------------------			-- For the colums view			-----------------------------			try				repeat with scrollarea in every scroll area of scroll area 1 of browser 1 of splitter group 1 of window 1					repeat with textItem in every text field of list 1 of scrollarea												repeat with selectionNameItem in selectedFileName							if (value of textItem as string) is equal to selectionNameItem as string then								tell textItem to perform action "AXShowMenu"								return							end if						end repeat											end repeat				end repeat			end try							-----------------------------			-- For the cover flow view			-----------------------------			try				tell outline 1 of scroll area 2 of splitter group 1 of splitter group 1 of window 1 to perform action "AXShowMenu"				return			end try				end tell	end tell
+end alfred_script</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>E7324332-7FC9-426B-B460-634E3C4DF82D</string>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string># Version 1.0
+
+## 1.0
+&gt; Showing the contextual menu works
+&gt; Doesn't work for a multiple selection on the icon view
+
+## TO DO:
+&gt; make it work for the multiple selection on the icon view
+
+# DESCRIPTION
+
+This workflow allows you to show the contextual menu on a selection in the finder.
+
+# INSTALLATION
+
+Nothing to do just use it :)
+
+# USAGE OF THIS WORKFLOW
+
+Select something in the finder and then hit the shortcut you have chosen.
+
+# CREDITS / COPYRIGHT
+
+If you have some suggestions or bug report email me @ alfredlotl (at) gmail (dot) com</string>
+	<key>uidata</key>
+	<dict>
+		<key>B342BCCB-4C27-46C3-A0FD-B0402AF14E4D</key>
+		<dict>
+			<key>ypos</key>
+			<real>110</real>
+		</dict>
+		<key>D67AE23B-2FEB-47FD-9D11-F2C437151A00</key>
+		<dict>
+			<key>ypos</key>
+			<real>110</real>
+		</dict>
+		<key>E7324332-7FC9-426B-B460-634E3C4DF82D</key>
+		<dict>
+			<key>ypos</key>
+			<real>110</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>

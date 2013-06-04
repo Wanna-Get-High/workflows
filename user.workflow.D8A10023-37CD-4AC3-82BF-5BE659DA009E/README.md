@@ -17,7 +17,7 @@ When you type the query it gets the result of youtube from that query parse it a
 
 In order to use this workflow you will need 
 > to have ruby on your machine 	
-> 
+> appl
 > to install hpricot from: 
 > > https://rubygems.org/gems/hpricot
 	

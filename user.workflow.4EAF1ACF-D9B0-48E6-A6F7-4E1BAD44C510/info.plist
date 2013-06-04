@@ -5,7 +5,19 @@
 	<key>bundleid</key>
 	<string>WannaGetHigh.Select_File</string>
 	<key>connections</key>
-	<dict/>
+	<dict>
+		<key>3D4A111C-2361-437E-8F28-261D7C4F109C</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>211E68DE-4C6E-438D-8CB6-653FBF7639A6</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
 	<key>createdby</key>
 	<string>François Lepan</string>
 	<key>description</key>

@@ -50,13 +50,13 @@
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>escaping</key>
-				<integer>63</integer>
+				<integer>62</integer>
 				<key>keyword</key>
 				<string>st</string>
 				<key>runningsubtext</key>
 				<string>Loading result</string>
 				<key>script</key>
-				<string>osascript wich_tab.scpt {query}</string>
+				<string>osascript wich_tab.scpt "{query}"</string>
 				<key>subtext</key>
 				<string>Show tabs that contain the query</string>
 				<key>title</key>
