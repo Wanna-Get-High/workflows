@@ -43,6 +43,8 @@
 			<string>alfred.workflow.action.applescript</string>
 			<key>uid</key>
 			<string>817E7036-70AE-4F60-84BA-D6D6DDDE122D</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -70,6 +72,8 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>3C811043-DB38-4673-885B-1A71AA22430D</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -119,6 +123,6 @@ If you have some suggestions or bug report email me @ alfredlotl (at) gmail (dot
 		</dict>
 	</dict>
 	<key>webaddress</key>
-	<string></string>
+	<string>https://github.com/Wanna-Get-High/workflows</string>
 </dict>
 </plist>

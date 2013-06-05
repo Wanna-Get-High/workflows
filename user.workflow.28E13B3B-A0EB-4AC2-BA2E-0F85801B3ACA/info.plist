@@ -42,6 +42,8 @@
 			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
 			<string>F3FDCA2D-9107-4FC3-9463-46FF9E3601DE</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -69,6 +71,8 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>87368CD5-97FA-4532-B5AE-CD6EB08A1C04</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -117,6 +121,6 @@ alfredlotl (at) gmail (dot) com</string>
 		</dict>
 	</dict>
 	<key>webaddress</key>
-	<string></string>
+	<string>https://github.com/Wanna-Get-High/workflows</string>
 </dict>
 </plist>

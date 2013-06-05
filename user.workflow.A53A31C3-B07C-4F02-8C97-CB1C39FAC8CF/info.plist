@@ -75,6 +75,25 @@ ruby tab_to_open_or_close.rb</string>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>2386D79F-9D71-486E-BCF5-41B6B513C3A7</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>paths</key>
+				<array>
+					<string>/Applications/SABnzbd.app</string>
+				</array>
+				<key>toggle</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.launchfiles</string>
+			<key>uid</key>
+			<string>09E5FF01-DDFD-4DFA-B470-5D25BB57DB07</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -96,21 +115,8 @@ ruby tab_to_open_or_close.rb</string>
 			<string>alfred.workflow.action.applescript</string>
 			<key>uid</key>
 			<string>E21D8664-9F4D-4D6D-8C5F-BB40480AAB60</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>paths</key>
-				<array>
-					<string>/Applications/SABnzbd.app</string>
-				</array>
-				<key>toggle</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.launchfiles</string>
-			<key>uid</key>
-			<string>09E5FF01-DDFD-4DFA-B470-5D25BB57DB07</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -129,6 +135,8 @@ ruby tab_to_open_or_close.rb</string>
 			<string>alfred.workflow.action.applescript</string>
 			<key>uid</key>
 			<string>42E82EE9-F1D8-446E-BD03-552B0D128FCF</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -205,6 +213,6 @@ If you have some suggestions or bug report email me @ alfredlotl (at) gmail (dot
 		</dict>
 	</dict>
 	<key>webaddress</key>
-	<string></string>
+	<string>https://github.com/Wanna-Get-High/workflows</string>
 </dict>
 </plist>
