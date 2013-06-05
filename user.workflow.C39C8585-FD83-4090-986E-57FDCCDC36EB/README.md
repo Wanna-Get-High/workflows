@@ -1,12 +1,14 @@
 # Version 1.0
 
 ## 1.0
-> Showing the contextual menu works
+> Showing the contextual menu works.
 >
-> Doesn't work for a multiple selection on the icon view
+> Doesn't work for a multiple selection on the icon view.
 
 ## TO DO:
-> Make it work for the multiple selection on the icon view
+> Make it work for the multiple selection on the icon view.
+>
+> Make it work on every application.
 
 # DESCRIPTION
 
