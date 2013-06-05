@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>JavaDoc-ver1.1</string>
+	<key>connections</key>
+	<dict>
+		<key>2024AFFF-7AD4-4D83-8D7B-D55130916049</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>2CCD82DA-C613-441D-A1A3-A01A9CE01F23</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>2CCD82DA-C613-441D-A1A3-A01A9CE01F23</key>
+		<array/>
+	</dict>
+	<key>createdby</key>
+	<string>Benjamin Van Ryseghem</string>
+	<key>description</key>
+	<string>Open the java doc on the provided class</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>JavaDoc</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>javadoc</string>
+				<key>runningsubtext</key>
+				<string>Retrieving the class</string>
+				<key>script</key>
+				<string>#Version 1.1
+
+#Use:
+#	javadoc class_name
+
+ruby suggest.rb {query}</string>
+				<key>subtext</key>
+				<string>On the class provided as argumemt</string>
+				<key>title</key>
+				<string>Open Javadoc</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>2024AFFF-7AD4-4D83-8D7B-D55130916049</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>script</key>
+				<string>open {query}</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>2CCD82DA-C613-441D-A1A3-A01A9CE01F23</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>= Java doc plugin
+
+== About
+
+This alfred plugin goal is to quickly access the Javadoc for a given class
+It will parse the javadoc website sources to retrieve the url of the class
+
+== Use
+
+javadoc class_name
+
+It will open your default web browser on the class url
+
+== Version
+
+1.1
+    - Move to Alfred 2
+
+1.0
+    - First version of the script
+
+== To Do</string>
+	<key>uidata</key>
+	<dict>
+		<key>2024AFFF-7AD4-4D83-8D7B-D55130916049</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>2CCD82DA-C613-441D-A1A3-A01A9CE01F23</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>https://github.com/Ezial/AlfredScripts</string>
+</dict>
+</plist>

@@ -42,6 +42,31 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>hotkey</key>
+				<integer>15</integer>
+				<key>hotmod</key>
+				<integer>524288</integer>
+				<key>hotstring</key>
+				<string>R</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>B342BCCB-4C27-46C3-A0FD-B0402AF14E4D</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>applescript</key>
 				<string>on alfred_script(q)
 	-- Move finder on the forground	tell application "Finder" to activate	tell application "System Events"		tell process "Finder"					-- retrieve the selection of finder			set theSelection to selection of application "Finder"					-- if nothing is selected return a message for the notification			if theSelection is equal to {} then return "select a file or folder"					-- the name of the selected files			set selectedFileName to {}					-- set the names of the selection			repeat with selectionItem in theSelection				set selectedFileName to selectedFileName &amp; name of (info for selectionItem as alias)			end repeat							-----------------------------			-- For the list view			-----------------------------			try				tell outline 1 of scroll area 2 of splitter group 1 of window 1 to perform action "AXShowMenu"				return			end try							-----------------------------			-- For the icon view				-- impossibility to do with multiple selection			-----------------------------			try							repeat with img in every image of UI element 1 of scroll area 2 of splitter group 1 of window 1					repeat with selectionNameItem in selectedFileName						if (name of img as string) is equal to selectionNameItem as string then							tell img to perform action "AXShowMenu"							return						end if					end repeat					end repeat			end try					-----------------------------			-- For the colums view			-----------------------------			try				repeat with scrollarea in every scroll area of scroll area 1 of browser 1 of splitter group 1 of window 1					repeat with textItem in every text field of list 1 of scrollarea												repeat with selectionNameItem in selectedFileName							if (value of textItem as string) is equal to selectionNameItem as string then								tell textItem to perform action "AXShowMenu"								return							end if						end repeat											end repeat				end repeat			end try							-----------------------------			-- For the cover flow view			-----------------------------			try				tell outline 1 of scroll area 2 of splitter group 1 of splitter group 1 of window 1 to perform action "AXShowMenu"				return			end try				end tell	end tell
@@ -78,31 +103,6 @@ end alfred_script</string>
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
 			<string>D67AE23B-2FEB-47FD-9D11-F2C437151A00</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>action</key>
-				<integer>0</integer>
-				<key>argument</key>
-				<integer>0</integer>
-				<key>hotkey</key>
-				<integer>15</integer>
-				<key>hotmod</key>
-				<integer>524288</integer>
-				<key>hotstring</key>
-				<string>R</string>
-				<key>leftcursor</key>
-				<false/>
-				<key>modsmode</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.hotkey</string>
-			<key>uid</key>
-			<string>B342BCCB-4C27-46C3-A0FD-B0402AF14E4D</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>

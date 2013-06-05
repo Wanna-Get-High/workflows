@@ -120,7 +120,7 @@ Many thanks to:
 
 > Flavio (https://github.com/flavio/jump) which created the shell script.
 >
-> Ezial a friend of mine which shows me this script :)
+> Benjamin a friend of mine which shows me this script (https://github.com/BenjaminVanRyseghem)
 
 
 If you have some suggestions or bug report email me @ 
