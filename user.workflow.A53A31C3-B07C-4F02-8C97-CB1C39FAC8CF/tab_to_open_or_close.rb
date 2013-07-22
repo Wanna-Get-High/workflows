@@ -21,8 +21,8 @@ def getTabsToOpenOrClose()
     # but not on the last one of the list or it will open google.fr
     
     # if there is a & escape it with --> &amp; <--
-    tab_to_open = "http://127.0.0.1:8085/sabnzbd/ "
-    tab_to_open += "http://www.binnews.in/index.php?country=fr "
+    tab_to_open = "http://127.0.0.1:8080/sabnzbd/ "
+    tab_to_open += "http://www.binnews.in "
     tab_to_open += "http://www.binsearch.info/ "
     tab_to_open += "http://fr.tvsubtitles.net/"
 
