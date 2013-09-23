@@ -9,48 +9,58 @@ def buildXMLItemFor(arg, title, subtitle, valid, icon)
     string += '<valid>'+valid+'</valid>'
     string += '<icon>'+icon+'</icon>'
     string += '</item>'
+    
     return string
 end
 
 
 # return all of the items contained in jmpFilePath in wich query is included
 def getItemsForQuery(jmpFilePath, query)
-  tab =  "<items>"
+    tab =  "<items>"
   
-  # split the query in an array for each word  
-  queryArray = query.split(" ") 
-  
-  # for each line in jmpFilePath do
-  File.open(jmpFilePath, "r").each_line.each { |line|
+    # split the query in an array for each word  
+    queryArray = query.split(" ") 
     
-    index = line.index(':')
+    # for each line in jmpFilePath do
+    File.open(jmpFilePath, "r").each_line.each { |line|
     
-    if (index != nil) then
-      argTitle = line[0,index]
-      subtitle = "jump to: " + line[index+2..-1]
-
-      containsAllQueryItem = true
+        index = line.index(':')
+    
+        if (index != nil) then
+            argTitle = line[0,index]
       
-      # if all of the elements of the querryArray is contained in
-      # the argTitle (the title of the bookmark) -> add it
-      queryArray.each { | query |
-          if (not (query.eql?"*" or argTitle.include?(query))) then
-              containsAllQueryItem = false
-          end
-      }
-
-      if containsAllQueryItem then
-        tab += buildXMLItemFor(argTitle, argTitle, subtitle, "yes",  "icon.png")
-      end
+            # use the lower case form of the title so that you can type whether 
+            # with capitalized letter or usual one and you will find this item
+            downCaseArgTitle = argTitle.downcase
       
+            subtitle = "jump to: " + line[index+2..-1]
+
+            containsAllQueryItem = true
+      
+            # if all of the elements of the querryArray is contained in
+            # the argTitle (the title of the bookmark) -> add it
+            queryArray.each { | query |
+                # use the lower case form of the title so that you can type whether 
+                # with capitalized letter or usual one and you will find this item
+                downCaseQuery = query.downcase
+           
+                if (not (query.eql?"*" or downCaseArgTitle.include?(downCaseQuery))) then
+                    containsAllQueryItem = false
+                end
+            }
+
+            if containsAllQueryItem then
+                tab += buildXMLItemFor(argTitle, argTitle, subtitle, "yes",  "icon.png")
+            end
+      
+        end
+    }
+
+    # if there is no element create on in order to pass the argument 
+    # if the user want to add an item
+    if (!(tab.include?("<title>") && tab.include?("<subtitle>"))) then
+        tab += buildXMLItemFor(query, "bookmark not found", "press ALT to add it", "yes", "folder_add.png")
     end
-  }
-
-  # if there is no element create on in order to pass the argument 
-  # if the user want to add an item
-  if (!(tab.include?("<title>") && tab.include?("<subtitle>"))) then
-    tab += buildXMLItemFor(query, "bookmark not found", "press ALT to add it", "yes", "folder_add.png")
-  end
   
     tab +=  "</items>"
     return tab

@@ -1,4 +1,4 @@
-# Version 1.3
+# Version 1.4
 
 ## 1.0
 > Basics are settled :
@@ -14,6 +14,9 @@
 
 ## 1.3
 > added the possibility to search with more than one world
+
+## 1.4
+> added the possibility to search with capitalised letter or not and always find the item
 
 ## TODO:
 > Being able to detect if a terminal is already open in the selected directory 
