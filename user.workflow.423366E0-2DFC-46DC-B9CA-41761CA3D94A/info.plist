@@ -38,7 +38,7 @@
 				<key>hotkey</key>
 				<integer>7</integer>
 				<key>hotmod</key>
-				<integer>1179648</integer>
+				<integer>524288</integer>
 				<key>hotstring</key>
 				<string>X</string>
 				<key>leftcursor</key>
@@ -72,7 +72,31 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string># Version 1.0
+
+## 1.0
+&gt; Basics are set :
+&gt; &gt; opening a terminal at the right location
+
+## TODO:
+&gt; Being able to detect when the user clicked on the desktop to open a terminal there even if another finder windows exist
+
+# DESCRIPTION
+
+This workflow allows you to open a terminal at the location of the frontmost finder window.
+
+# INSTALLATION / REQUIREMENT
+
+no prerequisite needed
+
+# USAGE OF THE WORKFLOW
+
+alt+x
+
+# CREDITS / COPYRIGHT
+
+If you have some suggestions or bug report email me @ 
+alfredlotl (at) gmail (dot) com</string>
 	<key>uidata</key>
 	<dict>
 		<key>07A986DF-1F95-4F2B-BA5C-75599D79B52B</key>
