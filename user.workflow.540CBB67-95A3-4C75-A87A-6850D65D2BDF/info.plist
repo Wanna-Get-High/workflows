@@ -3,24 +3,154 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string></string>
+	<string>WannaGetHigh.Get</string>
 	<key>connections</key>
-	<dict/>
+	<dict>
+		<key>9ECEA3F2-6B26-4026-8FC3-53E311993D84</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D7549413-F19B-4F9F-A5BD-E3668BFC3D10</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>D7549413-F19B-4F9F-A5BD-E3668BFC3D10</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>96B2DDFF-F45D-4550-9397-0F0339F1AE77</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
 	<key>createdby</key>
-	<string></string>
+	<string>Francois Lepan</string>
 	<key>description</key>
-	<string>download the data from the url with curl command</string>
+	<string>Download the data from the url past in argument at the frontmost finder window</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>GetFile</string>
+	<string>Get</string>
 	<key>objects</key>
-	<array/>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Get</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>96B2DDFF-F45D-4550-9397-0F0339F1AE77</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>osascript get.scpt "{query}"</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>D7549413-F19B-4F9F-A5BD-E3668BFC3D10</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>get</string>
+				<key>subtext</key>
+				<string>curl -O "{query}"</string>
+				<key>text</key>
+				<string>Will download the file at the URL in the frontmost finder window</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>9ECEA3F2-6B26-4026-8FC3-53E311993D84</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
 	<key>readme</key>
-	<string></string>
+	<string># Version 1.0
+
+## 1.0
+&gt; Basics are set :
+&gt; &gt; download the file at the URL location
+
+## TODO:
+&gt; Being able to detect when the user clicked on the desktop to open download a file on the desktop even if another finder windows exist
+
+# DESCRIPTION
+
+This workflow allows you to download a file and save it to the frontmost finder window location
+
+# INSTALLATION / REQUIREMENT
+
+you need curl installed on your machine :
+&gt; http://curl.haxx.se/
+&gt; 
+&gt; https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/curl.1.html
+
+# USAGE OF THE WORKFLOW
+
+get URL
+
+# CREDITS / COPYRIGHT
+
+If you have some suggestions or bug report email me @ 
+alfredlotl (at) gmail (dot) com</string>
 	<key>uidata</key>
-	<dict/>
+	<dict>
+		<key>96B2DDFF-F45D-4550-9397-0F0339F1AE77</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>9ECEA3F2-6B26-4026-8FC3-53E311993D84</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>D7549413-F19B-4F9F-A5BD-E3668BFC3D10</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
 	<key>webaddress</key>
-	<string></string>
+	<string>https://github.com/Wanna-Get-High/workflows</string>
 </dict>
 </plist>
